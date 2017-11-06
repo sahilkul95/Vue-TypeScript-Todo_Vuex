@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "es5",
+      "dom",
+      "es2015"
+    ],
+    "strict": true,
+    "alwaysStrict": false,
+    "strictFunctionTypes": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    // "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitAny": true
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./src/*.js"
+  ],
+  "compileOnSave": true
+}

@@ -8,11 +8,13 @@
         <div class='ui form'>
           <div class='field'>
             <label>Title</label>
-            <input v-model="titleText" type='text'>
+            <input v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has('title') }" v-model="titleText" name="title" type='text'>
+            <span v-show="errors.has('title')" class="help is-danger">{{ errors.first('title') }}</span>
           </div>
           <div class='field'>
             <label>Project</label>
-            <input v-model="projectText" type='text'>
+            <input v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('project') }" v-model="projectText" name="project" type='text'>
+            <span v-show="errors.has('project')" class="help is-danger">{{ errors.first('project') }}</span>
           </div>
           <div class='ui two button attached buttons'>
             <button class='ui basic blue button' v-on:click="sendForm()">
@@ -30,6 +32,8 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
 
 @Component({})
 export default class CreateTodo extends Vue{
